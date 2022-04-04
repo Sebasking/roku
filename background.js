@@ -1,12 +1,28 @@
-let color = '#3aa757';
+// chrome.runtime.onInstalled.addListener(() => {
+//     chrome.storage.sync.set({ color });
+// });
 
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({ color });
-    console.log('Default background color set to %cgreen', `color: ${color}`);
-});
+// async function getCurrentTab() {
+//     let queryOptions = { active: true, currentWindow: true };
+//     let [tab] = await chrome.tabs.query(queryOptions);
+//     return tab;
+// }
+
+// getCurrentTab().then((tab) => {
+//     const { id: tabId } = tab
+//     chrome.scripting.executeScript(
+//         {
+//             target: { tabId: tabId },
+//             files: ['pdf-lib.js'],
+//         },
+//     );
+// })
+
+// chrome.ta
+
+
 
 function generatePDF(arg1, arg2) {
-    debugger
     console.log("Generating PDF")
     console.log(arg1)
     console.log(arg2)
@@ -15,7 +31,7 @@ function generatePDF(arg1, arg2) {
 chrome.contextMenus.create({
     title: "Create PDF",
     contexts: ["page"], //this is the default value but just being explicit here,
-    id: "Some event name"
+    id: Date.now().toString()
 });
 
 chrome.contextMenus.onClicked.addListener(generatePDF)

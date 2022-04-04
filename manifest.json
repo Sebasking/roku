@@ -6,6 +6,17 @@
     "background": {
         "service_worker": "background.js"
     },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://mls.gsmls.com/*"
+            ],
+            "js": [
+                "pdf-lib.js",
+                "contract-generator.js"
+            ]
+        }
+    ],
     "permissions": [
         "storage",
         "activeTab",
